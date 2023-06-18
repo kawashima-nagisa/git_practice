@@ -1,3 +1,157 @@
 <h1>git 練習１</h1>
 <p>git status</p>
 <p>git diff</p>
+
+<!-- <input type="checkbox" class="check" onchange="handleCheckboxChange(event)">これ文章 -->
+
+
+
+
+
+<div>
+    <input type="checkbox" class="check" value="チェック１">チェック1
+    <input type="checkbox" class="check" value="チェック2">チェック2
+    <input type="checkbox" class="check" value="チェック3">チェック3
+</div>
+
+
+<ul>
+    <li><input type="checkbox" class="check" href="javaScript:void(0)"><span></span>全て</input type="checkbox"></li>
+    <li><input type="checkbox" class="check" href="javaScript:void(0)"><span></span>フィットネス</input type="checkbox"></li>
+    <li><input type="checkbox" class="check" href="javaScript:void(0)"><span></span>ピラティス・ヨガ</input type="checkbox">
+    </li>
+    <li><input type="checkbox" class="check" href="javaScript:void(0)"><span></span>ボディケア</input type="checkbox"></li>
+    <li><input type="checkbox" class="check" href="javaScript:void(0)"><span></span>ゴルフ</input type="checkbox"></li>
+    <li><input type="checkbox" class="check" href="javaScript:void(0)"><span></span>その他</input type="checkbox"></li>
+
+</ul>
+
+<div class="select">
+    <select name="" id="">
+        <option value="項目1">項目1</option>
+        <option value="項目2">項目2</option>
+        <option value="項目3">項目3</option>
+    </select>
+</div>
+
+
+
+
+
+<style>
+    body {
+        margin: 50px auto;
+        width: 800px;
+    }
+
+    /* 基本のセレクトボックスのカスタマイズ */
+    .select {
+        /* background: #cfcedb; */
+        height: 40px;
+        width: 300px;
+        border-radius: 5px;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            position: absolute;
+            content: '';
+            width: 8px;
+            height: 8px;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            border-bottom: 2px solid #c72020;
+            border-right: 2px solid #443b98;
+            z-index: -1;
+        }
+    }
+
+    select {
+        /* 初期化 */
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 16px;
+        width: 100%;
+        height: 100%;
+        padding: 0 10px;
+        position: relative;
+        border: 1px solid red;
+    }
+</style>
+
+<script>
+    // function handleCheckboxChange(event) {
+    //     if (event.target.checked) {
+    //         console.log("チェックされました");
+    //     } else {
+    //         console.log("チェックが解除されました");
+    //     }
+    // }
+
+
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const checkboxes = document.querySelectorAll('.check');
+
+    //     checkboxes.forEach(function (checkbox) {
+    //         checkbox.addEventListener('click', function () {
+    //             if (this.checked) {
+    //                 // 一旦全てをクリアして再チェックする
+    //                 checkboxes.forEach(function (checkbox) {
+    //                     checkbox.checked = false;
+
+    //                 });
+    //                 this.checked = true;
+    //                 console.log("チェックされました");
+
+    //             }
+    //         });
+    //     });
+    // });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.check');
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('click', function () {
+                if (this.checked) {
+                    checkboxes.forEach(function (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.classList.remove('active'); // activeクラスを削除
+                    });
+
+                    this.checked = true;
+                    this.classList.add('active'); // activeクラスを付与
+                    console.log("チェックされました");
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<!-- チェックボックスの状態が変更されるたびに、handleCheckboxChange関数が呼び出されます。
+event.target.checkedを使って、イベントが発生した要素（この場合はチェックボックス）
+のcheckedプロパティの値を取得しています。
+その結果に応じて、チェックがされたか解除されたかをコンソールに表示しています。
+
+したがって、this.checkedはイベントが発生した要素のチェックボックスの状態を表し、
+その値に応じた処理を行うために使用されます。 -->
